@@ -12,5 +12,5 @@ async fn main() {
     let deployer = Agent::builder("deployer").with_behavior(Deployer);
 
     world.add_agent(deployer);
-    world.run().await;
+    world.run().await.ok();
 }

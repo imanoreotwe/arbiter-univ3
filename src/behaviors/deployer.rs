@@ -70,7 +70,8 @@ impl Behavior<()> for Deployer {
 
         messager
             .send(To::All, serde_json::to_string(&deployment_data)?)
-            .await;
+            .await
+            .ok();
 
         Ok(None)
     }

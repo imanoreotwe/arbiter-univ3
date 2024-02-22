@@ -19,8 +19,6 @@ jobs:
         with:
           toolchain: nightly
           components: rustfmt
-      - name: git submodule update
-        run: git submodule update --init --recursive
       - name: cargo fmt
         run: cargo +nightly fmt --all -- --check
 
@@ -36,8 +34,6 @@ jobs:
         with:
           toolchain: stable
           components: clippy
-      - name: git submodule update
-        run: git submodule update --init --recursive
       - name: cargo clippy
         run: cargo clippy --workspace --all-features -- -D warnings
 
