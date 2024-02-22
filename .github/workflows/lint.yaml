@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  fmt:
-    name: fmt
+  lint:
+    name: full lint
     runs-on: ubuntu-latest
 
     steps:
@@ -18,7 +18,7 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
-          components: rustfmt clippy
+          components: rustfmt, clippy
       - name: run fmt
         run: cargo +nightly fmt --all -- --check
       - name: run clippy
